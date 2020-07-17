@@ -1,5 +1,6 @@
 package dao;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import utility.ConnectionManager;
 
 public class UserDAO implements UserDaoInterface {
 
-	public int signUp(User user) {
+	public int signUp(User user) throws ClassNotFoundException, IOException {
 		String INSERT_USERS_SQL = "INSERT INTO USERS(email, password)VALUES(?,?)";
 
 		int result = 0;
@@ -30,7 +31,7 @@ public class UserDAO implements UserDaoInterface {
 		return result;
 	}
 	
-	public boolean loginUser(User user) {
+	public boolean loginUser(User user) throws ClassNotFoundException, IOException {
 		boolean status = false;
 		try{
 			Connection connection = ConnectionManager.getConnection();

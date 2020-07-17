@@ -27,6 +27,9 @@ public class DeleteBlogController extends HttpServlet {
 		} catch (IOException e) {
 			
 			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
 	}
@@ -37,7 +40,7 @@ public class DeleteBlogController extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private void deleteBlog(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+	private void deleteBlog(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ClassNotFoundException {
 		int id = Integer.parseInt(request.getParameter("id"));
 		
 		BlogDaoImpl blogDAO = new BlogDaoImpl();
